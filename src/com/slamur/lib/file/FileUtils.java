@@ -3,7 +3,7 @@ package com.slamur.lib.file;
 import java.io.File;
 import java.io.IOException;
 
-public class FileUtils {
+public class FileUtils implements FileConstants {
 
     public static File getExistingFile(String fileName) {
         File file = null;
@@ -22,6 +22,6 @@ public class FileUtils {
     }
 
     public static File getExistingFile(String fileName, String extension) {
-        return getExistingFile(fileName + "." + extension);
+        return getExistingFile(fileName + DOT + extension);
     }
 }
