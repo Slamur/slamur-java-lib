@@ -1,5 +1,6 @@
 package com.slamur.lib.model.provider;
 
+import com.slamur.lib.file.Extensions;
 import com.slamur.lib.file.FileUtils;
 
 import java.io.*;
@@ -7,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public abstract class FileProvider<ValueType> extends ProviderImpl<ValueType> {
+public class FileProvider<ValueType> extends ProviderImpl<ValueType> {
 
-    interface FileStrategy<ValueType> {
+    public interface FileStrategy<ValueType> extends Extensions {
 
         ValueType readValue(StringTokenizer tok);
         void printValue(PrintWriter out, ValueType value);
@@ -20,7 +21,7 @@ public abstract class FileProvider<ValueType> extends ProviderImpl<ValueType> {
     private String fileName;
     private String extension, delimiter;
 
-    FileProvider(FileStrategy<ValueType> fileStrategy) {
+    public FileProvider(FileStrategy<ValueType> fileStrategy) {
         this.fileStrategy = fileStrategy;
 
         this.fileName = "";
