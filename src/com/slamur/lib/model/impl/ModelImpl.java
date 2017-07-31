@@ -36,4 +36,9 @@ public abstract class ModelImpl<ValueType> implements Model<ValueType> {
     public void setProvider(Provider<ValueType> provider) {
         this.provider = provider;
     }
+
+    @Override
+    public void saveValues() {
+        provider.saveValues(values);
+    }
 }

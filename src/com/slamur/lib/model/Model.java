@@ -10,5 +10,6 @@ public interface Model<ValueType> {
     Provider<ValueType> getProvider();
     void setProvider(Provider<ValueType> provider);
 
+    void saveValues();
     void updateValues();
 }
